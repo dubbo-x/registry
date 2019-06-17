@@ -126,7 +126,7 @@ type Registry interface {
 - subscribe：订阅获取服务
 - invoke：client向server端发送请求
 
-## 写在最后
+## 尝试进一步的了解
 
 如果想直观的了解dubbo-go的registry是如何运行的，可以尝试跑一下[examples](https://github.com/apache/dubbo-go/tree/master/examples)下面provider和consumer对应的代码：
 
@@ -143,3 +143,10 @@ type Registry interface {
 - consumer如何向registry订阅，registry如何匹配到对应的url并返回给consumer
 
 应该会对学习registry的运行流程有很大的帮助。
+
+## 写在最后
+
+From dubbo, beyond dubbo。这句话是我个人对dubbo-go的理解：
+
+- from dubbo：是指这个项目的初衷是为了丰富dubbo的生态，支持dubbo的跨语言性，成为dubbo的一个go语言实现
+- beyond dubbo：是指在dubbo的基础上，我希望这个项目能成为service mesh的一个代表
