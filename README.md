@@ -81,6 +81,10 @@ type Registry interface {
 }
 ```
 
+下面为dubbo-go已经实现的registry：
+
+- [zookeeper](https://github.com/apache/dubbo-go/blob/master/registry/zookeeper/registry.go)
+
 ## 补充
 
 ## 术语
