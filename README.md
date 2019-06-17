@@ -1,5 +1,13 @@
 # 注册中心
 
+- [流程](https://github.com/dubbo-x/registry#%E6%B5%81%E7%A8%8B)
+- [例子](https://github.com/dubbo-x/registry#%E4%BE%8B%E5%AD%90)
+- [url](https://github.com/dubbo-x/registry#url)
+- [registry](https://github.com/dubbo-x/registry#registry)
+- [代码结构](https://github.com/dubbo-x/registry#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84)
+- [术语](https://github.com/dubbo-x/registry#%E6%9C%AF%E8%AF%AD)
+- [写在最后](https://github.com/dubbo-x/registry#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E)
+
 ## 流程
 
 首先看一下dubbo经典的架构图：
