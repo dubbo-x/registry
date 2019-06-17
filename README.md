@@ -4,15 +4,16 @@
 
 首先看一下dubbo经典的架构图：
 
+![dubbo_architecture](https://github.com/dubbo-x/registry/blob/master/img/dubbo_architecture.png)
 
 从图中可以看出dubbo的大致流程如下：
 
-- 首先，provider（也可以理解为server端）向注册中心registry注册（register），其中注册内容包括（但不限于）：
-  - 服务名，也可以叫做接口名
-  - 该服务提供的方法名
+- 首先，provider向registry注册，其中注册内容包括（但不限于）：
   - 地址和端口
   - 协议：dubbo（这里特指dubbo的rpc协议，而不是微服务框架），jsonrpc等等
-- 其次，consumer（也可以理解为client端）向注册中心registry订阅（subscribe），获取provider向registry注册的内容（但不限于）：
+  - 服务名，也可以叫做接口名
+  - 该服务提供的方法名
+- 其次，consumer向registry订阅，获取provider向registry注册的内容（但不限于）：
   - 地址和端口
   - 协议
 - 然后，consumer通过拿到的地址和端口，并使用对应的协议去请求provider
@@ -21,6 +22,67 @@
 
 下面以zookeeper注册中心为例：
 
-## dubbo-go
+## url
 
-https://github.com/apache/dubbo-go/blob/master/common/url.go#L74-L82
+在了解dubbo-go中registry之前，首先要了解dubbo-go中的[URL](https://github.com/apache/dubbo-go/blob/master/common/url.go#L64-L82)这一概念。这是因为dubbo-go中的注册和订阅都是通过URL来实现的：
+
+- provider向registry注册的服务信息是以URL的形式存储的
+- consumer向registry订阅并获取服务信息，也是通过URL匹配到相应的
+
+下面我们看一下URL的结构是什么样子的：
+
+```go
+type baseUrl struct {
+	Protocol     string
+	Location     string // ip+port
+	Ip           string
+	Port         string
+	Params       url.Values
+	PrimitiveURL string
+	ctx          context.Context
+}
+
+type URL struct {
+	baseUrl
+	Path     string // like  /com.ikurento.dubbo.UserProvider3
+	Username string
+	Password string
+	Methods  []string
+	//special for registry
+	SubURL *URL
+}
+```
+
+其中
+
+- Ip，Port：地址和端口
+- Path：服务名
+- Methods：方法名
+- Protocol：协议
+
+## registry
+
+dubbo-go关于注册中心的代码主要位于[registry](https://github.com/apache/dubbo-go/tree/master/registry)目录下。为了保证一定的可扩展性，我们抽象出了[Registry接口](https://github.com/apache/dubbo-go/blob/master/registry/registry.go)，如下
+
+```go
+// Extension - Registry
+type Registry interface {
+	common.Node
+	//used for service provider calling , register services to registry
+	//And it is also used for service consumer calling , register services cared about ,for dubbo's admin monitoring.
+	Register(url common.URL) error
+
+	//used for service consumer ,start subscribe service event from registry
+	Subscribe(common.URL) (Listener, error)
+}
+```
+
+## 补充
+
+## 术语
+
+- provider：server端
+- consumer：client端
+- registry：注册中心
+- register：注册服务
+- subscribe：订阅获取服务
