@@ -20,11 +20,11 @@
 
 ## 例子
 
-下面的图表示了把zookeeper作为注册中心的大致流程：
+下图展示了把zookeeper作为注册中心的大致流程：
 
 ![zookeeper](https://github.com/dubbo-x/registry/blob/master/img/zookeeper.png)
 
-其中图片来自文章：[在Dubbo应用中使用Zookeeper](http://dubbo.apache.org/zh-cn/blog/dubbo-zk.html)
+其中图片出自文章：[在Dubbo应用中使用Zookeeper](http://dubbo.apache.org/zh-cn/blog/dubbo-zk.html)。
 
 ## url
 
