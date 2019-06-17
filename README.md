@@ -64,6 +64,11 @@ type URL struct {
 - Methods：该服务提供的方法
 - Protocol：协议
 
+另外
+
+- 推荐一篇介绍dubbo的url的文章：[Dubbo中的URL统一模型](http://dubbo.apache.org/zh-cn/blog/introduction-to-dubbo-url.html)
+- 可以看一下java版本的url的代码：[URL.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/main/java/org/apache/dubbo/common/URL.java)
+
 ## registry
 
 dubbo-go关于注册中心的代码主要位于[registry](https://github.com/apache/dubbo-go/tree/master/registry)目录下。为了保证一定的可扩展性，dubbo-go抽象出了[Registry接口](https://github.com/apache/dubbo-go/blob/master/registry/registry.go)，代码如下：
@@ -99,6 +104,8 @@ type Registry interface {
 - registry：注册中心
 - remoting
 - version
+
+由于dubbo-go参考了java版本的结构，因此整体结构类似于java版本的[dubbo](https://github.com/apache/dubbo)。
 
 ## 术语
 
