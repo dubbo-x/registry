@@ -31,9 +31,9 @@
 在了解dubbo-go的registry之前，首先要了解dubbo-go的[url](https://github.com/apache/dubbo-go/blob/master/common/url.go)这一概念。这是因为dubbo-go的注册和订阅都是通过url来实现的：
 
 - provider向registry注册的服务信息是以url的形式存储的
-- consumer向registry订阅并获取的服务信息，也是通过url匹配到相应的，才返回给consumer的
+- consumer向registry订阅并获取的服务信息，也是通过url匹配到相应的，才返回的
 
-下面看一下url在的大致模样：
+下面看一下url的大致模样：
 
 ```go
 type baseUrl struct {
@@ -66,7 +66,7 @@ type URL struct {
 
 ## registry
 
-dubbo-go关于注册中心的代码主要位于[registry](https://github.com/apache/dubbo-go/tree/master/registry)目录下。为了保证一定的可扩展性，我们抽象出了[Registry接口](https://github.com/apache/dubbo-go/blob/master/registry/registry.go)，如下
+dubbo-go关于注册中心的代码主要位于[registry](https://github.com/apache/dubbo-go/tree/master/registry)目录下。为了保证一定的可扩展性，dubbo-go抽象出了[Registry接口](https://github.com/apache/dubbo-go/blob/master/registry/registry.go)，代码如下：
 
 ```go
 // Extension - Registry
