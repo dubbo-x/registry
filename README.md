@@ -6,21 +6,25 @@
 
 ![dubbo_architecture](https://github.com/dubbo-x/registry/blob/master/img/dubbo_architecture.png)
 
-从图中可以看出dubbo的大致流程如下：
+从图中可以看出dubbo的流程大致如下：
 
-- 首先，provider向registry注册，其中注册内容包括（但不限于）：
+- 首先看步骤一：provider向registry注册，其中注册内容包括（但不限于）：
   - 地址和端口
-  - 协议：dubbo（这里特指dubbo的rpc协议，而不是微服务框架），jsonrpc等等
+  - 协议：dubbo，jsonrpc等等
   - 服务名，也可以叫做接口名
-  - 该服务提供的方法名
-- 其次，consumer向registry订阅，获取provider向registry注册的内容（但不限于）：
+  - 该服务提供的方法
+- 其次看步骤二：consumer向registry订阅，并获取provider向registry注册的内容（但不限于）：
   - 地址和端口
   - 协议
-- 然后，consumer通过拿到的地址和端口，并使用对应的协议去请求provider
+- 然后看步骤四：consumer通过拿到的内容去请求provider
 
 ## 例子
 
-下面以zookeeper注册中心为例：
+下面的图表示了把zookeeper作为注册中心的大致流程：
+
+![zookeeper](https://github.com/dubbo-x/registry/blob/master/img/zookeeper.png)
+
+其中图片来自文章：[在Dubbo应用中使用Zookeeper](http://dubbo.apache.org/zh-cn/blog/dubbo-zk.html)
 
 ## url
 
@@ -81,8 +85,11 @@ type Registry interface {
 
 ## 术语
 
+- dubbo：一般指java版本的微服务框架，也可特指rpc传输协议，根据语境区别
+- dubbo-go：指dubbo的go版本
 - provider：server端
 - consumer：client端
 - registry：注册中心
 - register：注册服务
 - subscribe：订阅获取服务
+- invoke：client向server端发送请求
