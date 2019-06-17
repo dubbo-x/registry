@@ -2,10 +2,10 @@
 
 - [流程](https://github.com/dubbo-x/registry#%E6%B5%81%E7%A8%8B)
 - [例子](https://github.com/dubbo-x/registry#%E4%BE%8B%E5%AD%90)
+- [术语](https://github.com/dubbo-x/registry#%E6%9C%AF%E8%AF%AD)
 - [url](https://github.com/dubbo-x/registry#url)
 - [registry](https://github.com/dubbo-x/registry#registry)
 - [代码结构](https://github.com/dubbo-x/registry#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84)
-- [术语](https://github.com/dubbo-x/registry#%E6%9C%AF%E8%AF%AD)
 - [尝试进一步的了解](https://github.com/dubbo-x/registry#%E5%B0%9D%E8%AF%95%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E4%BA%86%E8%A7%A3)
 - [写在最后](https://github.com/dubbo-x/registry#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E)
 
@@ -34,6 +34,17 @@
 ![zookeeper](https://github.com/dubbo-x/registry/blob/master/img/zookeeper.png)
 
 其中图片出自文章：[在Dubbo应用中使用Zookeeper](http://dubbo.apache.org/zh-cn/blog/dubbo-zk.html)。
+
+## 术语
+
+- dubbo：一般指java版本的微服务框架，也可特指rpc传输协议，根据语境区别
+- dubbo-go：指dubbo的go版本
+- provider：server端
+- consumer：client端
+- registry：注册中心
+- register：注册服务
+- subscribe：订阅获取服务
+- invoke：client向server端发送请求
 
 ## url
 
@@ -115,17 +126,6 @@ type Registry interface {
 - version
 
 由于dubbo-go参考了java版本的结构，因此整体结构类似于java版本的[dubbo](https://github.com/apache/dubbo)。
-
-## 术语
-
-- dubbo：一般指java版本的微服务框架，也可特指rpc传输协议，根据语境区别
-- dubbo-go：指dubbo的go版本
-- provider：server端
-- consumer：client端
-- registry：注册中心
-- register：注册服务
-- subscribe：订阅获取服务
-- invoke：client向server端发送请求
 
 ## 尝试进一步的了解
 
