@@ -117,3 +117,21 @@ type Registry interface {
 - register：注册服务
 - subscribe：订阅获取服务
 - invoke：client向server端发送请求
+
+## 卸载最后
+
+如果想直观的了解dubbo-go中的registry是如何运行的，可以尝试跑一下[examples](https://github.com/apache/dubbo-go/tree/master/examples)下面的provider和consumer对应代码：
+
+- [go-server](https://github.com/apache/dubbo-go/tree/master/examples/dubbo/go-server)
+- [go-client](https://github.com/apache/dubbo-go/tree/master/examples/dubbo/go-client)
+
+运行方式参考[Readme.md](https://github.com/apache/dubbo-go/blob/master/examples/README.md)。
+
+通过尝试观察以下现象：
+
+- provider如何生成url
+- provider如何向registry注册url
+- consumer如何生成url
+- consumer如何向registry订阅，registry如何匹配到对应的url并返回给consumer
+
+应该会对学习registry的运行流程有很大的帮助。
