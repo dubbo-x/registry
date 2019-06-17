@@ -28,12 +28,12 @@
 
 ## url
 
-在了解dubbo-go中registry之前，首先要了解dubbo-go中的[URL](https://github.com/apache/dubbo-go/blob/master/common/url.go#L64-L82)这一概念。这是因为dubbo-go中的注册和订阅都是通过URL来实现的：
+在了解dubbo-go的registry之前，首先要了解dubbo-go的[url](https://github.com/apache/dubbo-go/blob/master/common/url.go)这一概念。这是因为dubbo-go的注册和订阅都是通过url来实现的：
 
-- provider向registry注册的服务信息是以URL的形式存储的
-- consumer向registry订阅并获取服务信息，也是通过URL匹配到相应的
+- provider向registry注册的服务信息是以url的形式存储的
+- consumer向registry订阅并获取的服务信息，也是通过url匹配到相应的，才返回给consumer的
 
-下面我们看一下URL的结构是什么样子的：
+下面看一下url在的大致模样：
 
 ```go
 type baseUrl struct {
@@ -61,7 +61,7 @@ type URL struct {
 
 - Ip，Port：地址和端口
 - Path：服务名
-- Methods：方法名
+- Methods：该服务提供的方法
 - Protocol：协议
 
 ## registry
