@@ -85,7 +85,20 @@ type Registry interface {
 
 - [zookeeper](https://github.com/apache/dubbo-go/blob/master/registry/zookeeper/registry.go)
 
-## 补充
+## 代码结构
+
+下面为[dubbo-go](https://github.com/apache/dubbo-go)的代码结构：
+
+- cluster
+- common
+- config
+- config_center
+- examples：例子
+- filter
+- protocol：rpc协议相关的客户端和服务端实现
+- registry：注册中心
+- remoting
+- version
 
 ## 术语
 
