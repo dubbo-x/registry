@@ -9,7 +9,6 @@ dubbo-go作为dubbo的go版本。本文简单介绍dubbo-go的注册中心。大
 - [registry](https://github.com/dubbo-x/registry#registry)、
 - [例子]()
 - [代码结构](https://github.com/dubbo-x/registry#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84)
-- [尝试进一步的了解](https://github.com/dubbo-x/registry#%E5%B0%9D%E8%AF%95%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E4%BA%86%E8%A7%A3)
 - [写在最后](https://github.com/dubbo-x/registry#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E)
 
 ## 流程
@@ -129,23 +128,5 @@ type Registry interface {
 - version
 
 由于dubbo-go参考了java版本的结构，因此整体结构类似于java版本的[dubbo](https://github.com/apache/dubbo)。
-
-## 尝试进一步的了解
-
-如果想直观的了解dubbo-go的registry是如何运行的，可以尝试跑一下[examples](https://github.com/apache/dubbo-go/tree/master/examples)下面provider和consumer对应的代码：
-
-- [go-server](https://github.com/apache/dubbo-go/tree/master/examples/dubbo/go-server)
-- [go-client](https://github.com/apache/dubbo-go/tree/master/examples/dubbo/go-client)
-
-运行方式参考[README.md](https://github.com/apache/dubbo-go/blob/master/examples/README.md)。
-
-通过尝试观察下面的现象：
-
-- provider如何生成url
-- provider如何向registry注册url
-- consumer如何生成url
-- consumer如何向registry订阅，registry如何匹配到对应的url并返回给consumer
-
-应该会对学习registry的运行流程有很大的帮助。
 
 ## 写在最后
