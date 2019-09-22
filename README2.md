@@ -6,7 +6,7 @@ dubbo-go作为dubbo的go版本。本文简单介绍dubbo-go的注册中心。大
 - [例子](https://github.com/dubbo-x/registry#%E4%BE%8B%E5%AD%90)
 - [术语](https://github.com/dubbo-x/registry#%E6%9C%AF%E8%AF%AD)
 - [url](https://github.com/dubbo-x/registry#url)
-- [registry](https://github.com/dubbo-x/registry#registry)、
+- [registry](https://github.com/dubbo-x/registry#registry)
 - [例子]()
 - [代码结构](https://github.com/dubbo-x/registry#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84)
 - [写在最后](https://github.com/dubbo-x/registry#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E)
